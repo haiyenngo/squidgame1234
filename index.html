@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Squid Game</title>
+   <style>
+    :root {
+           --maincolor: black;
+           --navmenuheight: 70px;
+       }
+      
+       * {
+           padding: 0;
+           margin: 0;
+           box-sizing: border-box;
+       }
+      
+       html {
+           font-family: Arial, Helvetica;
+           font-size: 16px;
+           background: white;
+       }
+      
+       body {
+           width: 1044px;
+           background: white;
+           margin: 0 auto;
+           padding: 0 10px;
+       }
+      
+       #navbar {
+           height: var(--navmenuheight);
+           background: black;
+       }
+      
+       #navbar .navbarmenu {
+           height: 100%;
+           margin-left: 35px;
+           float: left;
+       }
+      
+       #navbar .navbarmenu>ul {
+           list-style-type: none;
+           height: 100%;
+       }
+      
+       #navbar .navbarmenu>ul>li {
+           float: left;
+           height: 100%;
+           line-height: var(--navmenuheight);
+           font-weight: bold;
+           text-transform: uppercase;
+           font-size: 10 rem;
+           margin-left: 30px;
+       }
+      
+       #navbar .navbarmenu>ul>li>a {
+           color: white;
+           text-decoration: none;
+       }
+      
+       #navbar .search {
+           float: right;
+           width: 250px;
+           height: 30px;
+           margin-top: 20px;
+           background: grey;
+           margin-right: 30px;
+           border-radius: 13px;
+       }
+      
+       #navbar .search input {
+           font-weight: bold;
+           background: none;
+           margin-left: 7px;
+           margin-top: 5px;
+           color: white;
+           border: none;
+           display: block;
+           float: left;
+           width: 85%;
+       }
+      
+       #navbar .search input:focus {
+           outline: none;
+       }
+      
+       #navbar .search span {
+           color: white;
+           font-size: 1.1rem;
+           display: block;
+           float: left;
+           margin-top: 4px;
+       }
+      
+       #banner .large-banner {
+           align-content: center;
+       }
+      
+       #main-menu {
+           height: 52px;
+           background: var(--maincolor);
+       }
+      
+       #main-menu>ul {
+           height: 100%;
+           list-style-type: none;
+       }
+      
+       #main-menu>ul>li {
+           height: 100%;
+           float: left;
+           text-align: center;
+           line-height: 52px;
+           text-transform: uppercase;
+           font-weight: bold;
+           font-size: 0.9rem;
+           padding: 0 130px;
+           color: white;
+           position: relative;
+       }
+      
+       #main-menu>ul>li>a {
+           color: white;
+           text-decoration: none;
+       }
+      
+       #main-menu>ul>li:hover {
+           color: white;
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       }
+      
+       #main-menu>ul>li:hover>a {
+           color: white;
+       }
+      
+       #main-menu>ul>li>ul {
+           list-style-type: none;
+           width: 250px;
+           position: absolute;
+           z-index: 1;
+           left: 0;
+           display: none;
+           background: var(--maincolor);
+       }
+      
+       #main-menu>ul>li:hover>ul {
+           display: block;
+           padding: 8px 0;
+       }
+      
+       #main-menu>ul>li>ul>li {
+           font-size: 0.9rem;
+           text-transform: none;
+           font-weight: normal;
+           height: 35px;
+           line-height: 35px;
+           background: var(--maincolor);
+           color: white;
+           text-align: left;
+           padding: 0 10px;
+           white-space: nowrap;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           position: relative;
+       }
+      
+       #main-menu>ul>li>ul>li::before {
+           content: ">> ";
+       }
+      
+       #main-menu>ul>li>ul>li:hover {
+           color: white;
+           background: red;
+           animation: slide 1s;
+       }
+      
+       #main-menu>ul>li>ul>li:hover>a {
+           color: white;
+       }
+      
+       #main-menu>ul>li>ul>li>a {
+           color: white;
+           text-decoration: none;
+       }
+      
+       @keyframes slide {
+           0% {
+               left: 8px;
+           }
+           20% {
+               left: -6.5px;
+           }
+           40% {
+               left: 5px;
+           }
+           60% {
+               left: -3.5px;
+           }
+           80% {
+               left: 2px;
+           }
+           100% {
+               left: 0;
+           }
+       }
+      
+       #newsfeed .running-text {
+           width: 1024px;
+           height: 100%;
+           background: gray;
+           float: left;
+           overflow: hidden;
+       }
+      
+       #newsfeed .running-text>ul {
+           height: 100%;
+           list-style-type: none;
+           position: relative;
+           animation: runnings 100s infinite;
+           animation-timing-function: linear;
+           white-space: nowrap;
+           line-height: 35px;
+       }
+      
+       #newsfeed .running-text>ul:hover {
+           animation-play-state: paused;
+       }
+      
+       @keyframes runnings {
+           0% {
+               left: 100%;
+           }
+           100% {
+               left: -10000px;
+           }
+       }
+      
+       #newsfeed .running-text>ul>li {
+           display: inline-block;
+           margin-left: 20px;
+           font-weight: bold;
+       }
+      
+       #newsfeed .running-text>ul>li::before {
+           content: ">> ";
+           color: var(--maincolor);
+       }
+      
+       #newsfeed .running-text>ul>li>a {
+           color: white;
+       }
+      
+       #main-content {
+           height: 432px;
+           background: black;
+       }
+      
+       #main-content .left-content {
+           height: 100%;
+           width: 670px;
+           margin-right: 16px;
+           float: left;
+           position: relative;
+       }
+      
+       #main-content .left-content img {
+           height: 100%;
+           width: 100%;
+       }
+      
+       #main-content .left-content div {
+           width: 100%;
+           position: absolute;
+           bottom: 0;
+           padding: 15px;
+           color: white;
+           background: rgba(206, 206, 206, 0.5);
+           text-align: justify;
+       }
+      
+       #main-content .left-content div a {
+           color: white;
+           text-decoration: none;
+       }
+      
+       #main-content .left-content:hover a {
+           color: red;
+       }
+      
+       #main-content .right-content {
+           width: 336px;
+           height: 100%;
+           background: black;
+           float: left;
+           color: white;
+           margin-top: 10px;
+           font-weight: bold;
+       }
+      
+       #footer {
+           height: 200px;
+           background: black;
+           color: white;
+       }
+   </style>
+</head>
+ 
+<body>
+   <div id="navbar">
+       <div class="navbarmenu">
+           <ul>
+               <li><a href="">Các  thể  loại  phim</a></li>
+               <li><a href="">Lịch  chiếu</a></li>
+               <li><a href="">Dịch  vụ  khác</a></li>
+           </ul>
+       </div>
+       <div class="search">
+           <input type="text" placeholder="Tìm kiếm...">
+           <span class="glyphicon glyphicon-search"></span>
+       </div>
+   </div>
+   </div>
+   <div id="banner">
+       <div class="large-banner">
+           <img src="https://www.tagar.id/Asset/uploads2019/1632104527969-ilustrasi-film-squid-game.jpg" alt="">
+       </div>
+   </div>
+   </div>
+   <div id="main-menu">
+       <ul>
+           <li>Giới thiệu
+               <ul>
+                   <li><a href="">Đội  ngũ sản  xuất</a></li>
+                   <li><a href="">Diễn  viên</a></li>
+               </ul>
+           </li>
+           <li>Lịch chiếu
+               <ul>
+                   <li><a href="">Netflix</a></li>
+                   <li><a href="">Disney+</a></li>
+                   <li><a href="">FPT  Play</a></li>
+                   <li><a href="">Các  trang  phim  khác</a></li>
+               </ul>
+           </li>
+           <li>Nội dung
+               <ul>
+                   <li><a href="">Trailer</a></li>
+                   <li><a href="">Review</a></li>
+                   <li><a href="">Đánh  giá</a></li>
+               </ul>
+           </li>
+       </ul>
+   </div>
+   <div id="newsfeed">
+       <div class="running-text">
+           <ul>
+               <li><a href="">Thông  báo  bảo  trì  server & lịch  mở  lại  các  trang  phim  cũ</a></li>
+               <li><a href="">Thông  báo phát  hành  phim  mới  nhất  tuần  này</a></li>
+               <li><a href="">Squid  Game  giữ  vững  ngôi  vị  top  trending  của  tháng</a></li>
+               <li><a href="">Thông  báo  bảo  trì  server & lịch  mở  lại  các  trang  phim  cũ</a></li>
+               <li><a href="">Thông  báo phát  hành  phim  mới  nhất  tuần  này</a></li>
+               <li><a href="">Squid  Game  giữ  vững  ngôi  vị  top  trending  của  tháng</a></li>
+               <li><a href="">Thông  báo  bảo  trì  server & lịch  mở  lại  các  trang  phim  cũ</a></li>
+               <li><a href="">Thông  báo phát  hành  phim  mới  nhất  tuần  này</a></li>
+               <li><a href="">Squid  Game  giữ  vững  ngôi  vị  top  trending  của  tháng</a></li>
+ 
+           </ul>
+       </div>
+   </div>
+   <div id="main-content">
+       <div class="left-content">
+           <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/9/19/ngang-11-16320678929211104978474.png" alt="">
+           <div>
+               <a href="">Xem  thêm: Squid  Game  nhận  đánh  giá  trái  chiều</a>
+           </div>
+       </div>
+       <div class="right-content">
+           <h3> THÔNG TIN TỔNG QUAN </h3>
+           <p> Thể loại: Phiêu lưu hành động, kịch tính, game sinh tồn </p>
+           <p> Đạo diễn: Hwang Dong-hyuk </p>
+           <p> Biên kịch: Hwang Dong-hyuk </p>
+           <p> Diễn viên: Lee Jung-jae, Park Hae-soo, Wi Ha-joon </p>
+           <p> Số tập: 9</p>
+           <p> Thời lượng: 63 phút </p>
+           <p> Khởi chiếu: 17 tháng 9</p>
+           <a href="https://www.netflix.com"><img src="https://lh3.googleusercontent.com/proxy/dZzN854d3GTUSy9OeQiE0FXGzBws-yCq4OdRr_eoovA93FA5slYJdKI64LLlX_SDf16WozatXD87N0RvehuWfvgIOzCfsRbUZhO5lXH7UUx3QPMLxAstOpQrVICj" alt="Xem  phim" style="width:300px;height:120px;"></a>
+       </div>
+   </div>
+   <div id="footer">
+       <a href="https://www.netflix.com"><img src="https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/249328434_450160029860799_3475440501110662454_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=730e14&_nc_ohc=5Bc02KYrc3UAX9dZzOR&_nc_ht=scontent.fhan5-2.fna&oh=380abb97806e1b1d62a649e293bfa4a7&oe=61809670"
+               alt="Thông  tin  khác" style="width:1024px;height:200px;"></a>
+ 
+   </div>
+ 
+</body>
+ 
+</html>
